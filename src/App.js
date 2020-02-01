@@ -1,27 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import './styles/app.css'
+import Header from "./components/Header";
+import Main from "./components/Main";
+import {BrowserRouter as Router} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="text-red-700">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React ogren
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="font-sans text-gray-nw">
+            <div className="container mx-auto lowercase">
+                <Router>
+                    <Header/>
+                    <Main/>
+                </Router>
+            </div>
+
+        </div>
+    );
 }
 
 export default App;
