@@ -1,13 +1,15 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 
-class Project extends Component {
-    render() {
-        return (
-            <div>
-                project
-            </div>
-        )
-    }
-}
+const Project = () => {
+    const [count, setCount] = useState(10);
+    return (
+        <div>
+            <span onClick={() => {
+                setCount(cur => cur + 1)
+            }}>+</span>
+            <p>{count}</p>
+        </div>
+    )
+};
 
 export default Project;

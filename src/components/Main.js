@@ -1,34 +1,34 @@
-import React, {Component} from "react";
+import React, {useContext} from "react";
 import Nav from "./Nav";
 import Question from "./Question";
 import Project from "./Project";
 import Developer from "./Developer";
 import RoadMap from "./RoadMap";
-import {BrowserRouter as Route, Switch} from "react-router-dom";
+import {Route} from "react-router-dom";
+import {AuthContext} from "../context/AuthContext";
 
 
-class Main extends Component {
-
-    render() {
-        return (
+const Main = () => {
+    const isAuth = useContext(AuthContext);
+    return (
+        <div>
             <div className="flex mt-10">
                 <div className="w-3/12">
                     <Nav/>
                 </div>
                 <div className="w-6/12">
-                    <Switch>
-                        <Route exact path="/q"><Question/></Route>
-                        <Route path="/project"><Project/></Route>
-                        <Route path="/developer"><Developer/></Route>
-                        <Route path="/road-map"><RoadMap/></Route>
-                    </Switch>
+                    {isAuth ? "true" : "false"}
+                    <Route exact path="/home" component={Question}/>
+                    <Route path="/home/project" component={Project}/>
+                    <Route path="/home/developer" component={Developer}/>
+                    <Route path="/home/road-map" component={RoadMap}/>
                 </div>
                 <div className="w-3/12">
                     .
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Main;

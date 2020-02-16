@@ -1,13 +1,12 @@
-import React, {Component} from "react";
+import React from "react";
 
-class Question extends Component {
-    render() {
-        return (
-            <div>
-                question
-            </div>
-        )
-    }
+function Question() {
+
+    return (
+        <div>
+            question
+        </div>
+    )
 }
 
 export default Question;

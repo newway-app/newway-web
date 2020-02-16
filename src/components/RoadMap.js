@@ -1,13 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
 
-class RoadMap extends Component {
-    render() {
-        return (
-            <div>
-                road-map
-            </div>
-        )
-    }
-}
+const RoadMap = () => {
+    return (
+        <div>
+            road-map
+        </div>
+    )
+};
 
 export default RoadMap;

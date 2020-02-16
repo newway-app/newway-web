@@ -1,13 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
 
-class Developer extends Component {
-    render() {
-        return (
-            <div>
-                developer
-            </div>
-        )
-    }
+function Developer() {
+    return (
+        <div>
+            developer
+        </div>
+    )
 }
 
 export default Developer;
