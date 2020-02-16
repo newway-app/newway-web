@@ -1,14 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import HeaderNav from "./HeaderNav";
 import JoinUs from "./JoinUs.";
 import BrandText from "../widget/BrandText";
 import SearchBox from "../widget/SearchBox";
 import {Link} from "react-router-dom";
-
+import {AuthContext} from "../../context/AuthContext";
 
 const Header = () => {
-
-    const user = null;
+    const context = useContext(AuthContext);
 
     return (
         <header className="flex flex-wrap justify-between items-center w-full">
@@ -21,11 +20,10 @@ const Header = () => {
                 <SearchBox/>
             </div>
             <div className="w-3/12">
-                {user != null ? <HeaderNav/> : <JoinUs/>}
+                {context.isAuth ? <HeaderNav/> : <JoinUs/>}
             </div>
         </header>
     );
 };
-
 
 export default Header;

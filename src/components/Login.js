@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import BrandTextWithDesc from "./widget/BrandTextWithDesc";
 import {NavLink, Redirect} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {login} from "../service/auth";
 import {TaggedAlert} from "./widget/TaggedAlert";
+import {AuthContext} from "../context/AuthContext";
 
 const Login = () => {
-
+    const context = useContext(AuthContext);
     const {register, handleSubmit, errors} = useForm();
     const [toHome, setToHome] = useState(false);
     const [alert, setAlert] = useState();
@@ -14,7 +15,10 @@ const Login = () => {
     const onSubmit = data => {
         login(data).then(r => {
             if (r.status === 200) {
+                console.log(r.data.token);
+                context.auth(r.data.token);
                 setToHome(true);
+                console.log(context);
                 return;
             }
             setAlert("Something went wrong.");
@@ -45,7 +49,7 @@ const Login = () => {
                                placeholder="username / email"
                                ref={register({required: true, min: 1})}
                                className="mt-5 block border border-gray-500 w-full p-3 text-xl rounded rounded-full mb-2 focus:outline-none"/>
-                        {errors.login && "give me a name"}
+                        {errors.login && "give me a name or email"}
                         <input type="password"
                                name="password"
                                placeholder="password"

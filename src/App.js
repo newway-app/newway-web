@@ -10,7 +10,8 @@ import {AuthContext} from "./context/AuthContext";
 const App = () => {
     // const [user, setUser] = useState(null);
     // const userProvider = useMemo(() => ({user, setUser}), [user, setUser]);
-    const isAuth = useContext(AuthContext);
+    const context = useContext(AuthContext);
+    console.log(context);
     return (
         <div className="font-sans text-gray-nw">
             <div className="container mx-auto lowercase">
@@ -18,9 +19,9 @@ const App = () => {
                     <Switch>
                         <Redirect exact from="/" to="/home"/>
                         <Route path="/home" component={Home}/>
-                        {isAuth === true ? <Redirect exact from="/login" to="/home"/> :
+                        {context.isAuth === true ? <Redirect exact from="/login" to="/home"/> :
                             <Route path="/login"><Login/></Route>}
-                        {isAuth === true ? <Redirect exact from="/sign-up" to="/home"/> :
+                        {context.isAuth === true ? <Redirect exact from="/sign-up" to="/home"/> :
                             <Route path="/sign-up"><SignUp/></Route>}
                     </Switch>
                 </Router>
