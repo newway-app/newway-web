@@ -21,7 +21,8 @@
     "react-scripts": "^3.3.1"
   },
   "scripts": {
-    "start": "npm run watch:css && react-scripts start",
+    "start": "react-scripts start",
+    "start:css": "npm run watch:css && react-scripts start",
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
