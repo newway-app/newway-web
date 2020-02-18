@@ -34,7 +34,7 @@ function client(endpoint, {body, ...customConfig} = {}) {
     return axios({
         method: config.method,
         headers: config.headers,
-        url: `${process.env.REACT_APP_NEWWAY_API_URL}/${endpoint}`,
+        url: `${process.env.REACT_APP_NEWWAY_API_URL}${endpoint}`,
         data: config.data
     }).then(r => r.data)
 
