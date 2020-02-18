@@ -30,11 +30,13 @@ function client(endpoint, {body, ...customConfig} = {}) {
     //     return response;
     // }
 
+    console.log(`${process.env.REACT_APP_NEWWAY_API_URL}/api${endpoint}`)
+    console.log(`${process.env.REACT_APP_NEWWAY_API_URL}`)
 
     return axios({
         method: config.method,
         headers: config.headers,
-        url: `${process.env.REACT_APP_NEWWAY_API_URL}${endpoint}`,
+        url: `${process.env.REACT_APP_NEWWAY_API_URL}/api${endpoint}`,
         data: config.data
     }).then(r => r.data)
 
