@@ -1,7 +1,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 
-const BrandTextWithDesc = () => {
+const BrandTextWDesc = () => {
     return (
         <div className="flex flex-col items-center">
             <NavLink to="/" className={`text-6xl font-bold text-gray-nw hover:text-green-nw`}> newway </NavLink>
@@ -10,6 +10,6 @@ const BrandTextWithDesc = () => {
     );
 };
 
-export default BrandTextWithDesc;
+export default BrandTextWDesc;
 
 

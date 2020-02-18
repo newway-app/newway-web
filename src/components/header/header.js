@@ -1,14 +1,13 @@
-import React, {useContext} from "react";
-import HeaderNav from "./HeaderNav";
-import JoinUs from "./JoinUs.";
-import BrandText from "../widget/BrandText";
-import SearchBox from "../widget/SearchBox";
+import React from "react";
+import HeaderNav from "./header-nav";
+import JoinUs from "./join-us.";
+import BrandText from "../widget/brand-text";
+import SearchBox from "../widget/search-box";
 import {Link} from "react-router-dom";
-import {AuthContext} from "../../context/AuthContext";
+import {useUser} from "../../context/user-context";
 
 const Header = () => {
-    const context = useContext(AuthContext);
-
+    const user = useUser()
     return (
         <header className="flex flex-wrap justify-between items-center w-full">
             <div className="w-3/12">
@@ -20,7 +19,7 @@ const Header = () => {
                 <SearchBox/>
             </div>
             <div className="w-3/12">
-                {context.isAuth ? <HeaderNav/> : <JoinUs/>}
+                {user ? <HeaderNav/> : <JoinUs/>}
             </div>
         </header>
     );

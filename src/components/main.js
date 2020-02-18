@@ -1,15 +1,13 @@
-import React, {useContext} from "react";
-import Nav from "./Nav";
-import Question from "./Question";
-import Project from "./Project";
-import Developer from "./Developer";
-import RoadMap from "./RoadMap";
+import React from "react";
+import Nav from "./nav";
+import Question from "../pages/question";
+import Project from "../pages/project";
+import Developer from "../pages/developer";
+import RoadMap from "../pages/road-map";
 import {Route} from "react-router-dom";
-import {AuthContext} from "../context/AuthContext";
 
 
 const Main = () => {
-    const isAuth = useContext(AuthContext);
     return (
         <div>
             <div className="flex mt-10">
@@ -17,7 +15,6 @@ const Main = () => {
                     <Nav/>
                 </div>
                 <div className="w-6/12">
-                    {isAuth ? "true" : "false"}
                     <Route exact path="/home" component={Question}/>
                     <Route path="/home/project" component={Project}/>
                     <Route path="/home/developer" component={Developer}/>
